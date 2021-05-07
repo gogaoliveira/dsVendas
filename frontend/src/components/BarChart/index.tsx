@@ -12,8 +12,8 @@ type SeriesData = {
 
 type ChartData = {
     labels: {
-        categories: string[]
-    }
+        categories: string[];
+    };
     series: SeriesData[];
 }
 
@@ -26,7 +26,7 @@ const BarChart = () => {
         series: [
             {
                 name: "",
-                data: []
+                data: []                   
             }
         ]
     });
@@ -36,7 +36,7 @@ const BarChart = () => {
             .then(response => {
                 const data = response.data as SaleSuccess[];
                 const myLabels = data.map(x => x.sellerName);
-                const mySeries = data.map(x => round(100 * x.deals / x.visited, 1));
+                const mySeries = data.map(x => round(100.0 * x.deals / x.visited, 1));
 
                 setChartData({
                     labels: {
@@ -45,14 +45,12 @@ const BarChart = () => {
                     series: [
                         {
                             name: "% Success",
-                            data: mySeries
+                            data: mySeries                   
                         }
                     ]
                 });
             });
     }, []);
-
-
 
     const options = {
         plotOptions: {
@@ -63,12 +61,12 @@ const BarChart = () => {
     };
 
     return (
-        <Chart
-            options={{ ...options, xaxis: chartData.labels }}
+       <Chart  
+            options={{ ...options, xaxis: chartData.labels}}
             series={chartData.series}
             type="bar"
             height="240"
-        />
+       />
     );
 }
 

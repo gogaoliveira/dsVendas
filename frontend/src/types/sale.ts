@@ -6,8 +6,8 @@ export type Sale = {
     deals: number;
     amount: number;
     date: string;
-    seller : Seller;
-}
+    seller: Seller;
+} 
 
 export type SalePage = {
     content?: Sale[];
@@ -18,7 +18,7 @@ export type SalePage = {
     number: number;
     first: boolean;
     numberOfElements?: number;
-    empty?: boolean
+    empty?: boolean;
 }
 
 export type SaleSum = {
