@@ -62,9 +62,6 @@ const BarChart = () => {
         },
     };
 
-    const mockData = {
-
-    };
     return (
         <Chart
             options={{ ...options, xaxis: chartData.labels }}
